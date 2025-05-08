@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-interface userData {
+interface RegisterUserData {
   username: string;
   email: string;
   password: string;
@@ -25,11 +25,12 @@ const Register = (): ReactElement => {
   const [loading, setLoading] = useState<boolean>(false);
 
   async function handleRegistration(
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.FormEvent<HTMLFormElement>
   ): Promise<void> {
     e.preventDefault();
     setLoading(true);
-    const userData: userData = {
+
+    const userData: RegisterUserData = {
       username,
       email,
       password,
@@ -80,7 +81,6 @@ const Register = (): ReactElement => {
                   ))}
                 </small>
               </div>
-
               <div className="mb-3">
                 <input
                   type="email"
@@ -90,7 +90,6 @@ const Register = (): ReactElement => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-
               <div className="mb-3">
                 <input
                   type="password"
@@ -118,7 +117,7 @@ const Register = (): ReactElement => {
                   className="btn btn-info d-block mx-auto"
                   disabled
                 >
-                  <FontAwesomeIcon icon={faSpinner} spin/>
+                  <FontAwesomeIcon icon={faSpinner} spin />
                   Please wait...
                 </button>
               ) : (
