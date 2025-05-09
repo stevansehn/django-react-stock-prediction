@@ -25,7 +25,7 @@ function Login(): ReactElement {
       "AuthContext is null. Make sure you're inside <AuthProvider>."
     );
   }
-  const { isLoggedIn, setIsLoggedIn } = authContext;
+  const { setIsLoggedIn } = authContext;
 
   async function handleLogin(
     e: React.FormEvent<HTMLFormElement>
@@ -48,7 +48,7 @@ function Login(): ReactElement {
       console.log("Login successful!");
       setErrors("");
       setIsLoggedIn(true);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {
         setErrors(err.response?.data.detail);

@@ -12,7 +12,7 @@ const Main = (): ReactElement => {
             This stock prediction application utilizes machine learning to
             forecast future stock prices.
           </p>
-          <Button text="Login" class="btn-outline-warning" endpoint="/login" />
+          <Button text="Explore Now" class="btn-outline-warning" endpoint="/dashboard" />
         </div>
       </div>
     </>

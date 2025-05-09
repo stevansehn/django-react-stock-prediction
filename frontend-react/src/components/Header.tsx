@@ -31,9 +31,16 @@ const Header = (): ReactElement => {
         </Link>
         <div>
           {isLoggedIn ? (
-            <button className="btn btn-danger" onClick={handleLogout}>
-              Logout
-            </button>
+            <>
+              <Button
+                text="Dashboard"
+                class="btn-outline-warning"
+                endpoint="/dashboard"
+              />
+              <button className="btn btn-danger" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
           ) : (
             <>
               <Button
